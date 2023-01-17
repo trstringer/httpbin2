@@ -31,6 +31,8 @@ Flags:
 Use "httpbin2 [command] --help" for more information about a command.
 ```
 
+### Basic web server
+
 Run a web server that returns a message:
 
 ```
@@ -43,6 +45,8 @@ Add hostname in the message, which is helpful in seeing which instance of the ap
 $ httpbin2 --message "hello world" --message-hostname
 ```
 
+### Failure injection
+
 Inject a percentage of failed responses:
 
 ```
@@ -50,6 +54,8 @@ $ httpbin2 --message "some failures" --status-code 500 --status-code-rate 50
 ```
 
 The above returns HTTP/500 half the time (and HTTP/200 the other half).
+
+### Delay injection
 
 Inject delays:
 
@@ -63,7 +69,9 @@ $ httpbin2 \
 
 This delays half of the requests for a duration from 1 to 5 seconds.
 
-You can change web servers together with relays:
+### Multiple web server hops
+
+You can chain web servers together with relays:
 
 ```
 $ httpbin2 -p 8081 --message "first"
