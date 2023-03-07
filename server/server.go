@@ -71,6 +71,7 @@ func (s *Server) handler(w http.ResponseWriter, r *http.Request) {
 
 // Run starts an instance of the web server.
 func (s *Server) Run() {
+	fmt.Println("Running server...")
 	http.HandleFunc("/", s.handler)
 	http.ListenAndServe(fmt.Sprintf(":%d", s.port), nil)
 }
